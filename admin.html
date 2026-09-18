@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Dashboard — KaelzOnline</title>
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--a:#1592ff;--a2:#55b8ff;--bg:#020812;--panel:#071527;--panel2:#0a1b2e;--line:#143555;--muted:#87a3bf;--ok:#19d69b;--warn:#ffbd4a;--bad:#ff5b73}
+body{background:radial-gradient(circle at 12% -5%,rgba(21,146,255,.2),transparent 28%),radial-gradient(circle at 95% 12%,rgba(37,99,235,.12),transparent 25%),var(--bg)}
+*{box-sizing:border-box}.hide{display:none!important}.admin-shell{min-height:100vh;display:flex}.sidebar{width:245px;position:fixed;inset:0 auto 0 0;background:rgba(5,17,31,.94);border-right:1px solid rgba(32,76,111,.5);padding:20px 14px;z-index:40}.brand{padding:6px 10px 22px}.brand b{font-size:22px;letter-spacing:-1px}.brand b span{color:var(--a)}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.side-title{text-transform:uppercase;font-size:9px;color:#55728e;letter-spacing:1.2px;padding:0 10px;margin:12px 0 7px}.nav{display:grid;gap:5px}.nav button{border:1px solid transparent;background:transparent;color:#9bb3ca;text-align:left;padding:11px 12px;border-radius:12px;font-size:11px;font-weight:700}.nav button.active,.nav button:hover{background:linear-gradient(90deg,rgba(21,146,255,.18),rgba(21,146,255,.06));border-color:#16466e;color:#fff}.nav button span{margin-right:9px}.side-bottom{position:absolute;left:14px;right:14px;bottom:18px}.main{margin-left:245px;width:calc(100% - 245px);padding:18px 22px 40px}.top{height:58px;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px}.title h1{font-size:21px;margin:0}.title p{font-size:11px;color:var(--muted);margin:4px 0 0}.top-actions{display:flex;gap:8px}.btn{border:1px solid #1b466b;background:#0a1b2e;color:#ddecfa;border-radius:11px;padding:10px 13px;font-weight:800;font-size:11px}.btn.primary{border-color:#168ff0;background:linear-gradient(135deg,#1596ff,#0869e8);color:white;box-shadow:0 8px 24px rgba(0,125,255,.18)}.btn.danger{background:#31131c;border-color:#6c2939;color:#ff8da0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.stat{position:relative;overflow:hidden;background:linear-gradient(180deg,#0a1b2e,#061324);border:1px solid var(--line);border-radius:17px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.2)}.stat:after{content:"";position:absolute;width:90px;height:90px;border:18px solid rgba(21,146,255,.08);border-radius:50%;right:-35px;bottom:-45px}.stat .ico{width:34px;height:34px;border-radius:11px;background:#0c3154;display:grid;place-items:center;margin-bottom:11px}.stat b{font-size:25px}.stat small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.content-grid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:12px;margin-top:13px}.panel{background:linear-gradient(180deg,#081a2d,#051222);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:0 10px 32px rgba(0,0,0,.2)}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.panel-head h2{font-size:14px;margin:0}.panel-head small{color:var(--muted);font-size:10px}.filters{display:flex;gap:7px;overflow:auto;margin-bottom:12px}.filters button{white-space:nowrap;border:1px solid #173b5c;background:#071728;color:#91abc4;border-radius:999px;padding:8px 11px;font-size:10px}.filters button.active{background:#0d83e8;border-color:#2ba5ff;color:#fff}.orders{display:grid;gap:10px}.order{border:1px solid #153754;background:#071629;border-radius:16px;padding:13px}.order-head{display:flex;justify-content:space-between;gap:10px}.order-main{display:flex;gap:10px}.order-icon{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#12395d,#0a2037);display:grid;place-items:center;font-size:19px;flex:none}.code{font-size:11px;font-weight:900}.product-name{font-size:12px;font-weight:800;margin-top:2px}.meta{font-size:9px;color:var(--muted);margin-top:3px}.badge{padding:6px 8px;border-radius:999px;height:max-content;font-size:9px;font-weight:900;border:1px solid #214967;background:#0b2740;color:#78c2ff}.badge.ok{background:#082d25;border-color:#145d4d;color:#55e0b0}.badge.warn{background:#322710;border-color:#604b1a;color:#ffd173}.badge.bad{background:#35151e;border-color:#692737;color:#ff8da0}.order-info{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}.info{background:#061221;border:1px solid #102f4b;border-radius:10px;padding:9px}.info label{display:block;color:#62819e;font-size:8px;text-transform:uppercase;margin-bottom:3px}.info b{font-size:10px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field label{display:block;color:#7895af;font-size:9px;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;border:1px solid #193d5b;background:#04101e;color:#eaf5ff;border-radius:10px;padding:9px;outline:none;font-size:10px}.field input:focus,.field select:focus,.field textarea:focus{border-color:#237fbe}.full{grid-column:1/-1}.proof-box{margin-top:9px;padding:10px;border:1px dashed #245478;background:#061523;border-radius:12px}.proof-actions{display:flex;gap:7px;flex-wrap:wrap}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.right-list{display:grid;gap:8px}.mini{padding:11px;border-radius:13px;background:#061523;border:1px solid #123550}.mini b{font-size:11px}.mini p{font-size:9px;color:var(--muted);margin:4px 0 0}.quick{display:grid;gap:8px}.empty{padding:35px 15px;text-align:center;color:var(--muted);font-size:11px;border:1px dashed #173c5c;border-radius:14px}.login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px}.login-card{width:min(430px,100%);padding:24px;background:linear-gradient(180deg,#091d32,#061323);border:1px solid #174064;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.4)}.login-logo{text-align:center;font-weight:900;font-size:25px}.login-logo span{color:var(--a)}.login-sub{text-align:center;color:var(--muted);font-size:11px;margin:7px 0 20px}.login-card .field{margin-top:10px}.login-card .btn{width:100%;margin-top:12px}.security{margin-top:12px;padding:10px;border-radius:11px;background:#061523;border:1px solid #123550;color:#7290aa;font-size:9px;line-height:1.5}
+.mobile-nav{display:none}
+@media(max-width:980px){.content-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.right-panel{display:none}}
+@media(max-width:720px){.sidebar{display:none}.main{margin-left:0;width:100%;padding:12px 12px 88px}.top{height:auto;align-items:flex-start}.top-actions .btn.refresh-label{font-size:0;padding:10px}.top-actions .btn.refresh-label:first-letter{font-size:14px}.title h1{font-size:18px}.stats{gap:8px}.stat{padding:12px}.stat b{font-size:21px}.content-grid{margin-top:10px}.order-info{grid-template-columns:1fr 1fr}.fields{grid-template-columns:1fr}.mobile-nav{display:flex;position:fixed;z-index:50;left:10px;right:10px;bottom:10px;height:58px;border:1px solid #194263;border-radius:17px;background:rgba(5,18,32,.94);backdrop-filter:blur(16px);justify-content:space-around;align-items:center}.mobile-nav button{border:0;background:none;color:#7795af;font-size:9px;font-weight:800}.mobile-nav button.active{color:#48adff}.mobile-nav span{display:block;font-size:17px;margin-bottom:2px}.panel{padding:12px}}
+</style>
+</head>
+<body>
+<div id="loginScreen" class="login-wrap">
+  <div class="login-card">
+    <div class="login-logo">Kaelz<span>Online</span></div>
+    <div class="login-sub">ADMIN CONTROL CENTER</div>
+    <div class="field"><label>Email Admin</label><input id="email" type="email" autocomplete="username" placeholder="admin@email.com"></div>
+    <div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" placeholder="••••••••"></div>
+    <button class="btn primary" id="loginBtn">Masuk ke Dashboard</button>
+    <div id="loginMsg" class="security">🔐 Akses hanya untuk akun yang terdaftar sebagai admin.</div>
+  </div>
+</div>
+
+<div id="dashboard" class="admin-shell hide">
+  <aside class="sidebar">
+    <div class="brand"><b>Kaelz<span>Online</span></b><small>ADMIN CONTROL CENTER</small></div>
+    <div class="side-title">Menu Utama</div>
+    <div class="nav">
+      <button class="active" data-section="dashboard"><span>⌂</span>Dashboard</button>
+      <button data-section="orders"><span>▣</span>Semua Pesanan</button>
+      <button data-section="payment"><span>◈</span>Verifikasi Pembayaran</button>
+      <button data-section="virtual"><span>◉</span>Nokos / OTP</button>
+      <button data-section="logo"><span>✦</span>Jasa Logo</button>
+    </div>
+    <div class="side-title">Sistem</div>
+    <div class="nav"><button id="sideRefresh"><span>↻</span>Refresh Data</button></div>
+    <div class="side-bottom"><button class="btn danger" style="width:100%" id="logoutBtn">Keluar Admin</button></div>
+  </aside>
+
+  <main class="main">
+    <header class="top">
+      <div class="title"><h1>Dashboard Admin</h1><p>Kelola pesanan KaelzOnline dari satu tempat.</p></div>
+      <div class="top-actions"><button class="btn refresh-label" id="refreshBtn">↻ Refresh</button></div>
+    </header>
+
+    <section class="stats">
+      <div class="stat"><div class="ico">⏳</div><b id="sPending">0</b><small>Menunggu Verifikasi</small></div>
+      <div class="stat"><div class="ico">⚙</div><b id="sProcess">0</b><small>Sedang Diproses</small></div>
+      <div class="stat"><div class="ico">📱</div><b id="sOtp">0</b><small>Menunggu OTP</small></div>
+      <div class="stat"><div class="ico">✓</div><b id="sDone">0</b><small>Pesanan Selesai</small></div>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel">
+        <div class="panel-head"><div><h2>Pesanan Terbaru</h2><small id="resultCount">0 pesanan</small></div><button class="btn" id="clearFilter">Semua</button></div>
+        <div class="filters" id="filters">
+          <button class="active" data-filter="ALL">Semua</button><button data-filter="Menunggu Verifikasi">Menunggu</button><button data-filter="Diproses">Diproses</button><button data-filter="Menunggu OTP">OTP</button><button data-filter="Selesai">Selesai</button><button data-filter="Ditolak">Ditolak</button>
+        </div>
+        <div id="orders" class="orders"></div>
+      </section>
+      <aside class="right-panel panel">
+        <div class="panel-head"><h2>Alur Kerja</h2></div>
+        <div class="quick">
+          <div class="mini"><b>1. Cek Pembayaran</b><p>Buka foto bukti transfer sebelum memproses pesanan.</p></div>
+          <div class="mini"><b>2. Proses Produk</b><p>Game → top up. Nokos → isi nomor dan tunggu OTP. Logo → kerjakan pesanan.</p></div>
+          <div class="mini"><b>3. Hubungi Customer</b><p>Gunakan tombol WhatsApp untuk memberi update.</p></div>
+          <div class="mini"><b>4. Selesaikan</b><p>Ubah status menjadi Selesai setelah layanan diberikan.</p></div>
+        </div>
+        <div class="panel-head" style="margin-top:20px"><h2>Catatan Keamanan</h2></div>
+        <div class="mini"><p>OTP hanya dipakai sementara di halaman admin dan tidak disimpan ke database oleh tombol Kirim OTP.</p></div>
+      </aside>
+    </div>
+  </main>
+</div>
+<nav class="mobile-nav"><button class="active" data-section="dashboard"><span>⌂</span>Dashboard</button><button data-section="orders"><span>▣</span>Pesanan</button><button data-section="payment"><span>◈</span>Bayar</button><button data-section="virtual"><span>◉</span>Nokos</button><button data-section="logo"><span>✦</span>Logo</button></nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script>
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);const $=id=>document.getElementById(id);let all=[];let currentFilter='ALL';let currentSection='dashboard';
+const rupiah=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n||0);
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function isVirtual(o){return (o.category||'').toLowerCase()==='virtual'||/whatsapp|shopee/i.test(o.product_name||'')}
+function isLogo(o){return (o.category||'').toLowerCase()==='logo'||/logo/i.test(o.product_name||'')}
+function isGame(o){return !isVirtual(o)&&!isLogo(o)}
+function icon(o){return isVirtual(o)?'📱':isLogo(o)?'🎨':'💎'}
+function badgeClass(s){return s==='Selesai'?'ok':s==='Ditolak'?'bad':(s==='Menunggu Verifikasi'||s==='Menunggu OTP')?'warn':''}
+async function boot(){const {data:{user}}=await sb.auth.getUser();if(!user){showLogin();return}const {data:admin}=await sb.from('admin_users').select('user_id').eq('user_id',user.id).maybeSingle();if(!admin){$('loginMsg').textContent='Akun berhasil login, tetapi belum terdaftar sebagai admin.';await sb.auth.signOut();return}showDash();await load()}
+function showLogin(){$('loginScreen').classList.remove('hide');$('dashboard').classList.add('hide')}
+function showDash(){$('loginScreen').classList.add('hide');$('dashboard').classList.remove('hide')}
+async function login(){const {error}=await sb.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});$('loginMsg').textContent=error?'❌ '+error.message:'Memeriksa akses admin…';if(!error)await boot()}
+async function load(){const {data,error}=await sb.from('orders').select('*').order('created_at',{ascending:false});if(error){$('orders').innerHTML='<div class="empty">Gagal mengambil pesanan.<br>'+esc(error.message)+'</div>';return}all=data||[];render()}
+function applySection(rows){if(currentSection==='payment')return rows.filter(o=>o.status==='Menunggu Verifikasi');if(currentSection==='virtual')return rows.filter(isVirtual);if(currentSection==='logo')return rows.filter(isLogo);return rows}
+function render(){let rows=currentFilter==='ALL'?all:all.filter(o=>o.status===currentFilter);rows=applySection(rows);$('resultCount').textContent=rows.length+' pesanan';$('sPending').textContent=all.filter(o=>o.status==='Menunggu Verifikasi').length;$('sProcess').textContent=all.filter(o=>o.status==='Diproses').length;$('sOtp').textContent=all.filter(o=>o.status==='Menunggu OTP').length;$('sDone').textContent=all.filter(o=>o.status==='Selesai').length;
+$('orders').innerHTML=rows.map(o=>{const id=esc(o.id);const gameInfo=isGame(o)?`<div class="info"><label>ID Game</label><b>${esc(o.game_id||o.detail||'-')}</b></div>${String(o.game_server||'')?`<div class="info"><label>Server</label><b>${esc(o.game_server)}</b></div>`:''}`:'';const logoInfo=isLogo(o)?`<div class="info"><label>REQUEST NAMA</label><b>${esc(o.logo_request_name||o.buyer_name||'-')}</b></div><div class="info"><label>DESKRIPSI</label><b>${esc(o.logo_description||o.detail||'-')}</b></div>`:'';return `<article class="order" data-id="${id}"><div class="order-head"><div class="order-main"><div class="order-icon">${icon(o)}</div><div><div class="code">#${esc(o.order_code||o.id.slice(0,8))}</div><div class="product-name">${esc(o.product_name||'Pesanan')}</div><div class="meta">${esc(new Date(o.created_at).toLocaleString('id-ID'))}</div></div></div><span class="badge ${badgeClass(o.status)}">${esc(o.status||'Menunggu Verifikasi')}</span></div>
+<div class="order-info"><div class="info"><label>Total</label><b>${rupiah(o.amount)}</b></div>${gameInfo}${logoInfo}${isVirtual(o)?`<div class="info"><label>WhatsApp</label><b>${esc(o.whatsapp||'-')}</b></div>`:''}</div>
+${isLogo(o)&&o.logo_reference_path?`<div class="proof-box"><button class="btn" onclick="openLogoReference('${id}')">🖼️ Lihat Referensi Logo</button></div>`:''}<div class="proof-box"><div class="proof-actions">${o.proof_path?`<button class="btn" onclick="openProof('${id}')">📷 Lihat Bukti Transfer</button>`:'<span class="meta">Belum ada bukti transfer.</span>'}<label class="btn" style="display:inline-flex;align-items:center;gap:6px">📸 Ambil Foto<input type="file" accept="image/*" capture="environment" data-proof style="display:none"></label></div></div>
+<div class="fields" style="margin-top:10px">${isVirtual(o)?`<div class="field"><label>Nomor Virtual</label><input data-k="virtual_number" value="${esc(o.virtual_number||'')}" placeholder="+62xxxxxxxxxx"></div><div class="field"><label>OTP Sementara</label><input data-otp placeholder="Masukkan OTP dari sistem"></div><div class="field full"><button class="btn" onclick="sendOtp('${id}')">📱 Kirim OTP ke Customer</button></div>`:''}${isLogo(o)?`<div class="field full"><label>Hasil Logo</label><input type="file" accept="image/*,application/pdf" data-result></div>`:''}<div class="field"><label>Status</label><select data-k="status"><option ${o.status==='Menunggu Verifikasi'?'selected':''}>Menunggu Verifikasi</option><option ${o.status==='Diproses'?'selected':''}>Diproses</option><option ${o.status==='Menunggu OTP'?'selected':''}>Menunggu OTP</option><option ${o.status==='Selesai'?'selected':''}>Selesai</option><option ${o.status==='Ditolak'?'selected':''}>Ditolak</option></select></div><div class="field"><label>Catatan Admin</label><textarea rows="2" data-k="admin_note">${esc(o.admin_note||'')}</textarea></div></div>
+<div class="actions"><button class="btn primary" onclick="saveOrder('${id}')">💾 Simpan Pesanan</button>${isVirtual(o)?`<button class="btn" onclick="wa('${id}')">💬 WhatsApp</button>`:''}</div></article>`}).join('')||'<div class="empty">Tidak ada pesanan pada filter ini.</div>'}
+async function uploadPayment(file,id){const safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');const path=`admin/${id}/payment-${Date.now()}-${safe}`;const {error}=await sb.storage.from('payment-proofs').upload(path,file,{upsert:true,contentType:file.type});if(error)throw error;return path}
+async function uploadLogo(file,id){const safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');const path=`${id}/${Date.now()}-${safe}`;const {error}=await sb.storage.from('logo-results').upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;return path}
+async function saveOrder(id){const card=document.querySelector(`[data-id="${id}"]`);const get=k=>card.querySelector(`[data-k="${k}"]`)?.value||'';try{const proof=card.querySelector('[data-proof]')?.files?.[0];const result=card.querySelector('[data-result]')?.files?.[0];const patch={status:get('status'),admin_note:get('admin_note')};if(card.querySelector('[data-k="virtual_number"]'))patch.virtual_number=get('virtual_number');if(proof)patch.proof_path=await uploadPayment(proof,id);if(result)patch.result_path=await uploadLogo(result,id);if(patch.status==='Selesai')patch.processed_at=new Date().toISOString();const {error}=await sb.from('orders').update(patch).eq('id',id);if(error)throw error;alert('Pesanan berhasil disimpan.');await load()}catch(e){alert(e.message||String(e))}}
+async function openProof(id){const o=all.find(x=>x.id===id);if(!o?.proof_path){alert('Bukti transfer belum tersedia.');return}const {data,error}=await sb.storage.from('payment-proofs').createSignedUrl(o.proof_path,300);if(error){alert(error.message);return}window.open(data.signedUrl,'_blank')}
+async function openLogoReference(id){const o=all.find(x=>x.id===id);if(!o?.logo_reference_path){alert('Referensi logo belum tersedia.');return}const {data,error}=await sb.storage.from('logo-references').createSignedUrl(o.logo_reference_path,300);if(error){alert(error.message);return}window.open(data.signedUrl,'_blank')}
+function wa(id){const o=all.find(x=>x.id===id);const p=(o?.whatsapp||'').replace(/\D/g,'');if(!p){alert('Nomor WhatsApp belum diisi.');return}window.open(`https://wa.me/${p}?text=${encodeURIComponent('Halo, terkait pesanan #'+(o.order_code||'')+' - '+(o.product_name||''))}`,'_blank')}
+function sendOtp(id){const card=document.querySelector(`[data-id="${id}"]`);const otp=card.querySelector('[data-otp]')?.value.trim();const o=all.find(x=>x.id===id);if(!otp){alert('Masukkan OTP terlebih dahulu. OTP tidak disimpan ke database.');return}const p=(o?.whatsapp||'').replace(/\D/g,'');if(!p){alert('Nomor WhatsApp customer belum tersedia.');return}window.open(`https://wa.me/${p}?text=${encodeURIComponent('OTP pesanan #'+(o.order_code||'')+': '+otp)}`,'_blank')}
+function setSection(s){currentSection=s;document.querySelectorAll('[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section===s));render()}
+document.querySelectorAll('[data-section]').forEach(b=>b.onclick=()=>setSection(b.dataset.section));document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{currentFilter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));render()});$('clearFilter').onclick=()=>{currentFilter='ALL';document.querySelectorAll('[data-filter]').forEach((x,i)=>x.classList.toggle('active',i===0));render()};$('loginBtn').onclick=login;$('password').addEventListener('keydown',e=>{if(e.key==='Enter')login()});$('refreshBtn').onclick=load;$('sideRefresh').onclick=load;$('logoutBtn').onclick=async()=>{await sb.auth.signOut();location.reload()};boot();
+</script>
+</body></html>
